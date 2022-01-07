@@ -1,0 +1,27 @@
+{
+    "user":[
+    {
+        "name":"Samia",
+        "address":"Ighil Ali,Bejaia",
+        "email":"samia.kherbouche@gmail.com",
+        "contact":"0781517077",
+        "id":"1"
+    },
+    {
+        "name":"Reda",
+        "address":"Sidi Ahmed,Bejaia",
+        "email":"reda.bekka@gmail.com",
+        "contact":"0782205066",
+        "id":"2"
+    },
+    {
+        "name":"Mira",
+        "address":"New york",
+        "email":"mira@gmail.com",
+        "contact":"0781517080",
+        "id":"3"
+    }
+
+
+]
+}
