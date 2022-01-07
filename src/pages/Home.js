@@ -8,8 +8,22 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+
 import { useDispatch,useSelector } from 'react-redux'
 import { loadUsers } from '../redux/actions/actions'
+
+const useButtonStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
+}));
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -51,6 +65,7 @@ const StyledTableCell = withStyles((theme) => ({
   
 const Home = () => {
     const classes = useStyles();
+    const buttonStyle=useButtonStyles()
     let dispatch=useDispatch()
     const {users} = useSelector(state => state.data)
     
@@ -79,7 +94,15 @@ const Home = () => {
                         <StyledTableCell align="center">{user.email}</StyledTableCell>
                         <StyledTableCell align="center">{user.contact}</StyledTableCell>
                         <StyledTableCell align="center">{user.address}</StyledTableCell>
-                        <StyledTableCell align="right"> </StyledTableCell>
+                        <StyledTableCell align="center">
+                        <div className={buttonStyle.root}>
+                            <ButtonGroup variant="contained"  aria-label="contained primary button group" >
+                                <Button color="secondary" style={{marginRight:"5px"}}>Delete</Button>
+                                <Button color="primary">Edit</Button>
+                               
+                            </ButtonGroup>
+                          </div>
+                        </StyledTableCell>
                         </StyledTableRow>
                     ))}
                     </TableBody>
