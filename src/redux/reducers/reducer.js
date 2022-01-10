@@ -20,8 +20,21 @@ const userReducer = (state=initialState,action) => {
             }
 
             case types.ADD_USER:
+                case types.UPDATE_USER:
                 return {
                     ...state,
+                    loading: false
+                }
+                // case types.UPDATE_USER:
+                //     return {
+                //         ...state,
+                //         loading: false
+                //     }
+    
+            case types.GET_SINGALE_USER:
+                return {
+                    ...state,
+                    user:action.payload,
                     loading: false
                 }
         default:

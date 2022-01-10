@@ -2,8 +2,8 @@ import React,{useState} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux'
+import { useNavigate} from 'react-router-dom';
+import { useDispatch,useSelector } from 'react-redux'
 import {addUser} from '../redux/actions/actions'
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,6 +18,8 @@ const useStyles = makeStyles((theme) => ({
 const AddUser = () => {
   const classes = useStyles();
   let navigate=useNavigate();
+
+  
   const dispatch = useDispatch();
 
   const [state, setstate] = useState({
@@ -47,7 +49,7 @@ const AddUser = () => {
  }
     return (
         <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center',flexDirection: 'column'}}>
-         <Button variant="contained" color="secondary" style={{marginTop:"20px"}} onClick={() =>navigate("/")}>
+         <Button variant="contained" color="secondary" style={{marginTop:"20px",width:"100px"}} onClick={() =>navigate("/")}>
          Go Back</Button>
         <h2>Add User</h2>
         {error && <h3 style={{color: 'red'}}>{error}</h3>}

@@ -121,7 +121,7 @@ const Home = () => {
                                 style={{marginRight:"5px"}}
                                 onClick={() =>handleDelete(user.id)}
                                 >Delete</Button>
-                                <Button color="primary">Edit</Button>
+                                <Button color="primary" onClick={()=>navigate(`/editUser/${user.id}`)}>Edit</Button>
                                
                             </ButtonGroup>
                           </div>

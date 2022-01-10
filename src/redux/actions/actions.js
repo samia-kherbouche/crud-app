@@ -14,6 +14,17 @@ const userAdded=() => ({
     type:types.ADD_USER
 })
 
+const getUser=(user) => ({
+    type:types.GET_SINGALE_USER,
+    payload:user,
+})
+
+const userUpdated=() => ({
+    type:types.UPDATE_USER
+})
+
+
+
 export const loadUsers = () =>{
     return function(dispatch) {
         Axios.get(`${process.env.REACT_APP_API}`)
@@ -43,11 +54,37 @@ export const addUser = (user) =>{
         .then((response) =>{
             console.log("la reponse est: "+response)
             dispatch(userAdded())
+            dispatch(loadUsers())
             
         })
         .catch((error) =>console.log("la reponse est: "+error))
     }
-}
+};
+//GET SINGLE USER
+export const getSingleUser = (id) =>{
+    return function(dispatch) {
+        Axios.get(`${process.env.REACT_APP_API}/${id}`)
+        .then((response) =>{
+            console.log("la reponse est: "+response)
+            dispatch(getUser(response.data))
+            
+        })
+        .catch((error) =>console.log("la reponse est: "+error))
+    }
+};
+
+export const updateUser = (user,id) =>{
+    return function(dispatch) {
+        Axios.put(`${process.env.REACT_APP_API}/${id}`,user)
+        .then((response) =>{
+            console.log("la reponse est: "+response)
+            dispatch(userUpdated())
+            
+        })
+        .catch((error) =>console.log("la reponse est: "+error))
+    }
+};
+
 
 
 
