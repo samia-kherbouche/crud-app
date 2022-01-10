@@ -12,7 +12,9 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 import { useDispatch,useSelector } from 'react-redux'
-import { loadUsers } from '../redux/actions/actions'
+import { loadUsers,deleteUser } from '../redux/actions/actions'
+
+import { useNavigate } from 'react-router-dom'
 
 const useButtonStyles = makeStyles((theme) => ({
   root: {
@@ -66,14 +68,31 @@ const StyledTableCell = withStyles((theme) => ({
 const Home = () => {
     const classes = useStyles();
     const buttonStyle=useButtonStyles()
+
+    //getUser
     let dispatch=useDispatch()
     const {users} = useSelector(state => state.data)
     
     useEffect(() => {
         dispatch(loadUsers())
     }, []);
+
+
+    // deleteUser
+    const handleDelete=(id)=>{
+      if (window.confirm('Are you sure you want to delete user')) {
+        dispatch(deleteUser(id))
+      }
+    }
+
+
+    let navigate=useNavigate()
     return (
         <div className='home-container'>
+        <div className={buttonStyle.root}> 
+        <Button variant="contained" color="primary" onClick={()=>navigate("/addUser")  }>ADD User</Button> 
+        </div>
+         
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="customized table">
                     <TableHead>
@@ -97,7 +116,11 @@ const Home = () => {
                         <StyledTableCell align="center">
                         <div className={buttonStyle.root}>
                             <ButtonGroup variant="contained"  aria-label="contained primary button group" >
-                                <Button color="secondary" style={{marginRight:"5px"}}>Delete</Button>
+                                <Button 
+                                color="secondary" 
+                                style={{marginRight:"5px"}}
+                                onClick={() =>handleDelete(user.id)}
+                                >Delete</Button>
                                 <Button color="primary">Edit</Button>
                                
                             </ButtonGroup>

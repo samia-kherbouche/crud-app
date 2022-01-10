@@ -1,27 +1,25 @@
 {
-    "user":[
+  "user": [
     {
-        "name":"Samia",
-        "address":"Ighil Ali,Bejaia",
-        "email":"samia.kherbouche@gmail.com",
-        "contact":"0781517077",
-        "id":"1"
+      "name": "Mira",
+      "address": "New york",
+      "email": "mira@gmail.com",
+      "contact": "0781517080",
+      "id": "3"
     },
     {
-        "name":"Reda",
-        "address":"Sidi Ahmed,Bejaia",
-        "email":"reda.bekka@gmail.com",
-        "contact":"0782205066",
-        "id":"2"
+      "name": "Samia",
+      "email": "samia.kherbouche@gmail.com",
+      "contact": "0781517770",
+      "address": "ighil ali, Bejaia",
+      "id": "CMt5B6r"
     },
     {
-        "name":"Mira",
-        "address":"New york",
-        "email":"mira@gmail.com",
-        "contact":"0781517080",
-        "id":"3"
+      "name": "samonta",
+      "email": "samonta@gmail.com",
+      "contact": "0652431578",
+      "address": "new york",
+      "id": "uMiSy4E"
     }
-
-
-]
+  ]
 }
